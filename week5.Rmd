@@ -5,7 +5,25 @@ date: '2022-05-20'
 output: html_document
 ---
 
-```{r}
+```{r, message=FALSE}
+library(readr)
+library(sf)
+library(terra)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(tmap)
 
+wildschwein_BE <- read_delim("wildschwein_BE_2056.txt",",") %>%
+  st_as_sf(coords = c("E", "N"), crs = 2056, remove = FALSE)
 ```
+
+```{r}
+Feldaufnahmen_Fanel <- read_sf("Feldaufnahmen_Fanel.gpkg")
+```
+data information: Geometry and fruit/vegetables for all the fields
+Geometry type: Polygon (list of coordinates)
+Data types: Fruit is string, ID is numeric
+coordinate system: LV95
+
 
